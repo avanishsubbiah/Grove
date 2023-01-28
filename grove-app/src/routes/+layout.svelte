@@ -9,3 +9,8 @@
 </nav>
 
 <slot></slot>
+<style lang="postcss">
+  .mycards {
+		margin: 1.5rem;
+  }
+</style>
