@@ -1,6 +1,11 @@
 micronaut:
   application:
     name: groveBackend
+  security:
+    authentication: session
+    redirect:
+      login-success: /
+      login-fail: /login/failedAuth
 datasources:
   default:
     driverClassName: com.mysql.cj.jdbc.Driver
