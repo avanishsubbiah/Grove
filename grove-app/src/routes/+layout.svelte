@@ -1,11 +1,11 @@
 <script>
-  import "../app.css";
+	import '../app.scss';
 </script>
 
-<nav>
-  <a href="/">Home</a>
-  <a href="/noti">Notifications</a>
-  <a href="/tree">Tree</a>
+<nav class="flex justify-center center-content">
+  <a href="/noti"><img class="text-3xl max-h-7 max-w-xs flex" src="/bell.png" alt="Notifs"/></a>
+  <a href="/" class="text-3xl font-serif font-medium">Grove</a>
+  <a href="/tree" class="text-3x center-content font-serif font-">Tree</a>
 </nav>
 
 <slot></slot>
