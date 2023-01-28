@@ -47,6 +47,8 @@ class UserControllerTest {
 
         var cmdRequest = HttpRequest.PUT("/users", UserUpdateCommand(2, "Connor C"))
         response = client.toBlocking().exchange(cmdRequest)
+        assertEquals(HttpStatus.NO_CONTENT, response.status())
+        user = client.toBlocking().retrieve("/users/2", User::class.java)
         assertEquals("Connor C", user.name)
 
         request = HttpRequest.GET("/users/list")
@@ -66,11 +68,11 @@ class UserControllerTest {
         assertEquals(1, users.size)
         assertEquals("Anna", users[0].name)
 
-        request = HttpRequest.GET("/genres/list?size=1&sort=name,desc")
+        request = HttpRequest.GET("/users/list?size=1&sort=name,desc")
         users = client.toBlocking().retrieve(request, Argument.listOf(User::class.java))
 
         assertEquals(1, users.size)
-        assertEquals("Micro-services", users[0].name)
+        assertEquals("Connor C", users[0].name)
 
         request = HttpRequest.GET("/users/list?size=1&page=2")
         users = client.toBlocking().retrieve(request, Argument.listOf(User::class.java))
@@ -85,6 +87,5 @@ class UserControllerTest {
         request = HttpRequest.GET("/users/list")
         users = client.toBlocking().retrieve(request, Argument.listOf(User::class.java))
         assertEquals(0, users.size)
-
     }
 }
