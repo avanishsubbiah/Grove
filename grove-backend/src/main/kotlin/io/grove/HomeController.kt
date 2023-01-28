@@ -1,23 +1,17 @@
 package io.grove
 
+import io.micronaut.http.MediaType.TEXT_PLAIN
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Produces
 import io.micronaut.security.annotation.Secured
 import io.micronaut.security.rules.SecurityRule
-import io.micronaut.views.View
 import java.security.Principal
 
-@Secured(SecurityRule.IS_ANONYMOUS) 
+@Secured(SecurityRule.IS_AUTHENTICATED) 
 @Controller 
 class HomeController {
-
+    @Produces(TEXT_PLAIN)
     @Get 
-    @View("home") 
-    fun index(principal: Principal?): Map<String, Any> { 
-        val data = mutableMapOf<String, Any>("loggedIn" to (principal != null))
-        if (principal != null) {
-            data["username"] = principal.name
-        }
-        return data
-    }
+    fun index(principal: Principal): String = principal.name
 }
