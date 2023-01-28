@@ -10,6 +10,7 @@ plugins {
 version = "0.1"
 group = "io.grove"
 
+val kotlinVersion = project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
 }
@@ -59,7 +60,7 @@ tasks {
         }
     }
 }
-graalvmNative.toolchainDetection = false
+graalvmNative.toolchainDetection.set(false)
 micronaut {
     runtime("netty")
     testRuntime("junit5")
