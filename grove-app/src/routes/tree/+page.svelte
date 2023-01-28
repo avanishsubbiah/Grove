@@ -4,7 +4,4 @@
 <button type="button" class="btn btn-primary">Primary</button>
   
 <style lang="postcss">
-  :global(html) {
-    background-color: theme(colors.green.100);
-  }
 </style>
