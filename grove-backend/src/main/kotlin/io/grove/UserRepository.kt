@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank
 
 @R2dbcRepository(dialect = Dialect.MYSQL)
 abstract class UserRepository : ReactorPageableRepository<User, Long> {
-    abstract fun save(@NotBlank name: String) Mono<User>
+    abstract fun save(@NotBlank name: String): Mono<User>
 
     @Transactional
     open fun saveWithException(@NotBlank name: String): Mono<User> {
