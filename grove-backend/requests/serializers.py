@@ -5,4 +5,4 @@ from .models import Request
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Request
-        fields = ["src", "dst", "desc"]
+        fields = ["id", "src", "dst", "desc"]
