@@ -17,7 +17,7 @@
     
     <div class="card container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto  sm:px-10"> 
-            <h1 class="flex justify-center text-2xl font-light font-serif">Quests</h1>
+            <h1 class="flex justify-center text-3xl font-light font-serif">Quests</h1>
             {#each dispQuests() as quest}
                 <div id="questEntry" class="relative align-middle content-center">
                     <ul class=""> 
@@ -41,6 +41,19 @@
         <br>
     </div>
     <br>
+    <div id="treeSettingsCard" class="card container sm:max-w-lg sm:rounded-lg">
+        <div class="mycards container-content sm:mx-auto sm:px-10"> 
+            <h1 class="flex justify-center text-3xl font-light font-serif">Settings</h1>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchNotifs" checked>
+                <label class="form-check-label" for="flexSwitchNotifs">Get Notifications</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchRomantic" checked>
+                <label class="form-check-label" for="flexSwitchRomantic">This is a Romantic Relationship</label>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
