@@ -13,9 +13,15 @@ from django.db.models import Q
 def get_notifications(request):
     username = request.user
     user = User.objects.filter(username=username).first()
-    print(user) 
-    notif = Notification.objects.filter(user_to=user)
-    print(notif)
+    notif = Notification.objects.filter(user_to=user).all()
 
     return Response(NotificationSerializer(notif, many=True).data)
 
+
+@api_view(["GET"])
+def delete_notifications(request):
+    user = User.objects.filter(username=request.user).first()
+    id = request.data["id"]
+    notifs = Notification.objects.filter(user_to=user, id=id).all()
+    notifs.delete()
+    

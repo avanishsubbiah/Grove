@@ -8,7 +8,6 @@ from notifications.models import Notification
 @api_view(["POST"])
 def shake_friend(request):
     src = User.objects.filter(username=request.user).first()
-    print(request.data)
     if (dst_name := request.data["dst"]) is None:
         return Http404
     dst = User.objects.filter(username=dst_name).first()
