@@ -4,8 +4,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow container">
   <a href="/noti" class="col-md-3 text-left"><img class="text-3xl max-h-7 max-w-xs flex" src="/bell.png" alt="Notifs"/></a>
-  <a href="/" class="col-md-6 text-center text-3xl font-serif font-medium">Grove</a>
-  <a href="/tree" class="col-md-3 text-right text-3x center-content font-serif font-">Trees</a>
+  <a href="/" class="col-md-6 text-center text-3xl font-serif font-medium">Grove</a>  
 </nav>
 
 <slot></slot>
