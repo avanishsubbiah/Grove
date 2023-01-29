@@ -3,8 +3,8 @@
   </div>
   <div class="noti-list">
     {#each dispNotis() as noti}
-      <div id="noti-card" class="homecard col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 sm:pt-5 sm:pb-5">
-        <p style="margin: 1.5rem"> {noti.content} <span style="float:right">{formatTime(noti.dateTime)} {formatDate(noti.dateTime)}</span></p>
+      <div id="noti-card" class="mycards col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 sm:pt-5 sm:pb-5">
+        <p> {noti.content} <span style="float:right">{formatTime(noti.dateTime)} {formatDate(noti.dateTime)}</span></p>
         <!-- <p> Talk to {friend} about {topic}!</p> -->
       </div>
     {/each}
