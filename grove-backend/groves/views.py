@@ -11,7 +11,7 @@ from django.utils import timezone
 
 @api_view(["POST"])
 def shake_friend(request):
-    src = User.get_by_username(request.name)
+    src = User.get_by_username(request.user)
     if (dst_name := request.data["dst"]) is None:
         return Http404
     dst = User.objects.filter(username=dst_name).first()
@@ -26,7 +26,7 @@ def shake_friend(request):
 
 @api_view(["GET"])
 def establish(request):
-    src = User.get_by_username(request.name)
+    src = User.get_by_username(request.user)
     if (dst_name := request.data["dst"]) is None:
         return Http404
     if (dst := User.get_by_username(dst_name)) is None:
