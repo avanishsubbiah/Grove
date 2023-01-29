@@ -4,11 +4,20 @@
         <h1 class="flex justify-center text-2xl font-light font-serif">
             {treeNameFromID(treeID)}'s Tree
         </h1>
-        <p class="flex justify-center">Planted: DATE</p>
+        <p class="flex justify-center font-serif">Planted: DATE</p>
+        <p class="flex justify-center font-serif">{treeStatusFromID(treeID)}</p>
     </span>
     <span class="container"> 
         <img style="max-width: 25rem" class="container-fluid" src="/stage0.png" alt="Tree">
     </span>
+    <br>
+    <p class="flex justify-center font-serif text-s">50/100 xp to lvl 1</p>
+    <div class="flex justify-center">
+        <div class="w-full bg-gray-200 h-1 mb-6" style="max-width: 25rem">
+            <div class="bg-green-600 h-1" style="width: 50%">
+            </div>
+        </div>
+    </div>
     <div class="flex justify-center">
         <button type="submit" aria-disabled="false" class="btn btn-lg btn-success active">Shake</button>
     </div>
@@ -86,6 +95,12 @@
         return trees.filter(obj => {
             return obj.treeID === id
         })[0].name
+    }
+
+    function treeStatusFromID(id) {
+        return trees.filter(obj => {
+            return obj.treeID === id
+        })[0].status
     }
     // console.log(dispNotis());
 </script>
