@@ -27,10 +27,10 @@ def shake_friend(request):
 @api_view(["GET"])
 def get_grove(request):
     src = User.get_by_username(request.user)
-    if (other_id := request.data["id"]) is None:
-        return Http404
+    if (other_id := request.query_params["id"]) is None:
+        return HttpResponse("No id ")
     other = User.objects.filter(id=other_id).first()
-    if (friendship := Grove.get_grove(src, dst)) is None:
+    if (friendship := Grove.get_grove(src, other)) is None:
         return Http404
     return Response(GroveSerializer(friendship).data)
 
@@ -38,7 +38,7 @@ def get_grove(request):
 @api_view(["GET"])
 def establish(request):
     src = User.get_by_username(request.user)
-    if (dst_name := request.data["dst"]) is None:
+    if (dst_name := request.query_params["dst"]) is None:
         return Http404
     if (dst := User.get_by_username(dst_name)) is None:
         return HttpResponseBadRequest
