@@ -3,4 +3,4 @@ defaultPackage: io.grove
 testFramework: junit
 sourceLanguage: kotlin
 buildTool: gradle
-features: [readme, mysql, http-client, jdbc-hikari, gradle, security-session, yaml, test-resources, jackson-databind, graalvm, views-velocity, data-r2dbc, app-name, kotlin-application, reactor-http-client, micronaut-build, r2dbc, junit, annotation-api, spock, flyway, kotlin, reactor, security-annotations, data, kotlin-build, logback, shade, serialization-jackson, netty-server]
+features: [annotation-api, app-name, data, data-jdbc, flyway, graalvm, gradle, graphql, http-client, jackson-databind, jdbc-hikari, junit, kotlin, kotlin-application, kotlin-build, logback, micronaut-build, netty-server, postgres, reactor, reactor-http-client, readme, security-annotations, security-jwt, shade, test-resources, yaml]
