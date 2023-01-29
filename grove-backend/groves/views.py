@@ -12,9 +12,9 @@ from django.utils import timezone
 @api_view(["POST"])
 def shake_friend(request):
     src = User.get_by_username(request.user)
-    if (dst_name := request.data["dst"]) is None:
+    if (dstid := request.data["dst"]) is None:
         return Http404
-    dst = User.objects.filter(username=dst_name).first()
+    dst = User.objects.filter(id=dstid).first()
     if (friendship := Grove.get_grove(src, dst)) is None:
         return Http404
     friendship.xp += 50
@@ -22,6 +22,17 @@ def shake_friend(request):
     n = Notification(user_to=dst, content="What's shaking?", src=str(src))
     n.save()
     return HttpResponse(f"Created shake to {dst}")
+
+
+@api_view(["GET"])
+def get_grove(request):
+    src = User.get_by_username(request.user)
+    if (other_id := request.data["id"]) is None:
+        return Http404
+    other = User.objects.filter(id=other_id).first()
+    if (friendship := Grove.get_grove(src, dst)) is None:
+        return Http404
+    return Response(GroveSerializer(friendship).data)
 
 
 @api_view(["GET"])
