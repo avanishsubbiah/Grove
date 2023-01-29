@@ -1,23 +1,14 @@
 micronaut:
-  security:
-    ldap:
-      default: 
-        context:
-          server: 'ldaps://db.debian.org'  
-          managerDn: 'cn=read-only-admin,dc=debian,dc=org'  
-          managerPassword: 'password'  
-        search:
-          base: "dc=debian,dc=org"  
-        groups:
-          enabled: true  
-          base: "dc=debian,dc=org" 
   application:
     name: groveBackend
   security:
-    authentication: session
-    redirect:
-      login-success: /
-      login-fail: /login/failedAuth
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: ${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}
 datasources:
   default:
     driverClassName: com.mysql.cj.jdbc.Driver
