@@ -35,7 +35,16 @@ class Notification(models.Model):
             status=False,
             user_to=tree, 
             user_from=self,
-            exp=50
+            exp=10
+        )
+    def shake(self, user_from: User, user_to: User):
+        shake = user_from + " shook you!"
+        return Quest(          
+            description=shake,
+            status=False,
+            user_to= user_to, 
+            user_from=self,
+            exp=0
         )
 
 
