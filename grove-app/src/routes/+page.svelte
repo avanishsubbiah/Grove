@@ -1,5 +1,6 @@
 <div class="home-page"> 
   <!-- justify-center content-center -->
+  <!-- <img class="flex container justify-center content-center" src="/lifeCycle.png"> -->
   <br>
   <div id="conversationCard" class="mycards col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     <p style="margin: 1.5rem"> Talk to FRIEND about TOPIC!</p>

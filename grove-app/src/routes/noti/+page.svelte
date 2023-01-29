@@ -3,20 +3,26 @@
   </div>
   <div class="noti-list">
     {#each dispNotis() as noti}
-    <!-- IF is doQuest: Take to camera -->
       <div id="noti-card" class="mycards col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 sm:pt-5 sm:pb-5">
-        {#if noti.type == doQuest}
-
-        {/if}
-        <!-- IF is viewQuest: Take to photo view -->
-        {#if noti.type == viewQuest}
-          
-        {/if}
+        <!-- {#if noti.type == doQuest}
+          <p> {noti.content} 
+            <span style="float:right">
+              {formatTime(noti.dateTime)} {formatDate(noti.dateTime)}
+            </span>
+          </p>
+        {:else if noti.type == viewQuest}
+          <p> {noti.content} 
+            <span style="float:right">
+              {formatTime(noti.dateTime)} {formatDate(noti.dateTime)}
+            </span>
+          </p>
+        {:else} -->
         <p> {noti.content} 
           <span style="float:right">
             {formatTime(noti.dateTime)} {formatDate(noti.dateTime)}
           </span>
         </p>
+        <!-- {/if} -->
       </div>
     {/each}
   </div>
@@ -26,7 +32,7 @@
   let notis = [
     { dateTime: 1674939694, content: "Shaken by Foo Bar", status: "active" , type:"shake"},
     { dateTime: 1674939695, content: "Growth with Foo Bar increased!", status: "active", type:"milestone" },
-    { dateTime: 1674939696, content: "You Recieved a Quest! Take a funny picture", status: "active", type:"doQuest" },
+    { dateTime: 1674939696, content: "You Recieved a Quest from Ramune! Take a funny picture", status: "active", type:"doQuest" },
     { dateTime: 1674939696, content: "Ramune sent you their Quest! Here's what they ate for dinner", status: "active", type:"viewQuest"},
   ]
 
