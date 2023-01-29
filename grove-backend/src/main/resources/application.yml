@@ -1,4 +1,16 @@
 micronaut:
+  security:
+    ldap:
+      default: 
+        context:
+          server: 'ldaps://db.debian.org'  
+          managerDn: 'cn=read-only-admin,dc=debian,dc=org'  
+          managerPassword: 'password'  
+        search:
+          base: "dc=debian,dc=org"  
+        groups:
+          enabled: true  
+          base: "dc=debian,dc=org" 
   application:
     name: groveBackend
   security:
