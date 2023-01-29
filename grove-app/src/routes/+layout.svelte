@@ -6,6 +6,7 @@
   <a href="/noti" class="col-md-3 text-left"><img class="text-3xl max-h-7 max-w-xs flex" src="/bell.png" alt="Notifs"/></a>
   <a href="/" class="col-md-6 text-center text-3xl font-serif font-medium">Grove</a>  
   <a href="/wishlist?treeID=1" class="col-md-3 text-right">Wishlist</a>
+  <a href="/user" class="col-md-3">User</a>
 </nav>
 
 <slot></slot>
