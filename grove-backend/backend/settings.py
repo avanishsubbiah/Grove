@@ -40,8 +40,19 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "groves.apps.GrovesConfig",
     "notifications.apps.NotificationConfig",
+    "challenge.apps.ChallengeConfig",
     "rest_framework",
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 
 MIDDLEWARE = [
