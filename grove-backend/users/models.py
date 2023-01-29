@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models import QuerySet
-from grooves.model import Grove
 
 
 # Create your models here.
@@ -12,4 +11,3 @@ class User(models.Model):
     def get_groves(self) -> QuerySet:
         return self.grove_set.all()
 
-    def get_grove(self, other: User) -> Grove:
