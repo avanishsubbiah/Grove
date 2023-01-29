@@ -24,5 +24,6 @@ urlpatterns = [
     path('quests/', include('notifications.urls')),
     path('users/', include('users.urls')),
     path('notifications/', include('notifications.urls')),
+    path('challenges/', include('challenge.urls')),
     path('admin/', admin.site.urls)
 ]

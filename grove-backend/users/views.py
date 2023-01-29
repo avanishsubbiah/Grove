@@ -19,33 +19,5 @@ def list_users(request):
 
 @api_view(["GET"])
 def list_users_groves(request):
-    username = request.user
-    if username is None:
-        raise Http404
-    uid = User.objects.filter(username=username)
-    if len(uid) != 1:
-        raise Http404
+    return Grove.get_friends(User.get_by_username(request.name))
 
-    uid = uid[0].id
-    groves = Grove.objects.filter(Q(user_a=uid) | Q(user_b=uid))
-    friends = []
-    for pair in groves:
-        if pair.user_a.id == uid:
-            friends.append(pair.user_b)
-        else:
-            friends.append(pair.user_a)
-    
-    return Response(UserSerializer(friends, many=True).data)
-
-@api_view(["POST"])
-def get_notifications(request):
-    username = request.user
-    user = User.objects.find(username=username)
-    print(user) 
-    notif = Notification.objects.filter(user_to=user)
-    print(notif)
-
-@api_view(["POST"])
-@permission_classes((IsAuthenticated,))
-def poke_friend(request):
-    pass
