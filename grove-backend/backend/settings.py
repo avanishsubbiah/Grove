@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-%f6yx7)#0-!&vo8truyg6m710wo*g741h5x-z+p1*car_mwa8f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "notifications.apps.NotificationConfig",
     "challenge.apps.ChallengeConfig",
     "rest_framework",
+    "corsheaders",
 ]
 
 
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "backend.urls"
