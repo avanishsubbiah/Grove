@@ -17,7 +17,7 @@
             </span>
           </p>
         {:else} -->
-        <p> {noti.content} 
+        <p style="margin: .5rem"> {noti.content} 
           <span style="float:right">
             {formatTime(noti.dateTime)} {formatDate(noti.dateTime)}
           </span>
@@ -76,7 +76,4 @@
 </script>
 
 <style lang="postcss">
-  .mycards {
-		margin: 1.5rem;
-  }
 </style>

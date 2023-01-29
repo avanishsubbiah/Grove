@@ -8,13 +8,13 @@
         <p class="flex justify-center font-serif">{treeStatusFromID(treeID)}</p>
     </span>
     <span class="container"> 
-        <img style="max-width: 25rem" class="container-fluid" src="/stage0.png" alt="Tree">
+        <img style="max-width: 25rem" class="container-fluid" src="/stage3.png" alt="Tree">
     </span>
     <br>
-    <p class="flex justify-center font-serif text-s">50/100 xp to lvl 1</p>
+    <p class="flex justify-center font-serif text-s">250/500 xp to lvl 4</p>
     <div class="flex justify-center">
-        <div class="w-full bg-gray-200 h-1 mb-6" style="max-width: 25rem">
-            <div class="bg-green-600 h-1" style="width: 50%">
+        <div class="w-full bg-gray-200 h-2 mb-6" style="max-width: 25rem">
+            <div class="bg-green-500 h-2" style="width: 50%">
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
     
     <div class="card container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto  sm:px-10"> 
-            <h1 class="flex justify-center text-3xl font-light font-serif">Quests</h1>
+            <h1 class="flex justify-center text-3xl font-light font-serif">Daily Quests</h1>
             {#each dispQuests() as quest}
                 <div id="questEntry" class="relative align-middle content-center">
                     <ul class=""> 
@@ -77,7 +77,7 @@
     ]
 
     let quests = [
-        { dateTime: 1674939694, content: "Take a pic of your pet", status: "active" },
+        { dateTime: 1674939694, content: "Take a pic of a pet", status: "active" },
         { dateTime: 1674939695, content: "Whatcha Eating?", status: "active" },
         { dateTime: 1674939696, content: "Something Funny", status: "active" },
         { dateTime: 1674939696, content: "Whatcha Doing?", status: "inactive" },

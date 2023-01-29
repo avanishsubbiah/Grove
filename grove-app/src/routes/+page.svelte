@@ -6,11 +6,10 @@
     <br> -->
     <!-- <img src="/polaroid.png"> -->
     <p class="text-center font-serif text-medium text-xl" style="margin: 1.5rem"> Welcome to your Grove</p>
-    <!-- <p> Talk to {friend} about {topic}!</p> -->
   <!-- </div> -->
   <br>
-  <div id="conversationCard" class="mycards col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-    <p class="text-center font-serif text-medium text-xl" style="margin: 1.5rem"> Talk to FRIEND about TOPIC!</p>
+  <div id="conversationCard" class="col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+    <p class="text-center font-serif text-medium text-xl" style="margin: 1.5rem"> Talk to Ramune about his latest artwork!</p>
     <!-- <p> Talk to {friend} about {topic}!</p> -->
   </div>
   <br>
