@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib import admin
+from django.contrib.admin import register
 from django.db.models import QuerySet
 
 
@@ -11,3 +13,7 @@ class User(models.Model):
     def get_groves(self) -> QuerySet:
         return self.grove_set.all()
 
+
+@register(User)
+class UserAdmin(admin.ModelAdmin):
+    pass
