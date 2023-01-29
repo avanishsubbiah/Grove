@@ -1,13 +1,13 @@
 <div class="container col-lg-12">
     <br>
     <div class="our-bg p-1 rounded shadow-xl container sm:max-w-lg sm:rounded-lg">
-        <span>
-            <h1 class="flex justify-center text-2xl font-light font-serif">
+        <div style="">
+            <h1 class="text-center text-2xl font-light font-serif">
                 {treeNameFromID(treeID)}'s Tree
             </h1>
-            <p class="flex justify-center font-serif">Planted: DATE</p>
-            <p class="flex justify-center font-serif">{treeStatusFromID(treeID)}</p>
-        </span>
+            <p class="text-center font-serif">Planted: DATE</p>
+            <p class="text-center font-serif">{treeStatusFromID(treeID)}</p>
+        </div>
         <span class="container"> 
             <img style="max-width: 25rem" class="container-fluid" src="/stage3.png" alt="Tree">
         </span>
@@ -20,7 +20,21 @@
             </div>
         </div>
         <div class="flex justify-center">
-            <button type="submit" style="background-color: #19783C !important; border-color: #19783C!important" aria-disabled="false" class="btn btn-lg btn-success active">Shake</button>
+            <div style="columns-3 md:columns-3">
+                <div>
+                    {#if treeID > 1}
+                        <a href="/tree?treeID={treeID - 1}"><img class="max-h-10" src="/black-chevron-left.png"></a>
+                    {/if}
+                </div>
+                <div>
+                    <button type="submit" style="background-color: #19783C !important; border-color: #19783C!important" aria-disabled="false" class="btn btn-lg btn-success active">Shake</button>
+                </div>
+                    <div>
+                    {#if treeID < 3}
+                        <a href="/tree?treeID={treeID + 1}"><img class="max-h-10"  src="/black-chevron-right.png"></a>
+                    {/if}
+                </div>
+            </div>
         </div>
         <br>
         <p class="flex justify-center" style="display:none">You may shake again at TIME </p>
