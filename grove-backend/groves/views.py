@@ -11,10 +11,10 @@ from django.utils import timezone
 
 @api_view(["POST"])
 def shake_friend(request):
-    src = User.get_by_username(request.name)
-    if (dst_name := request.data["dst"]) is None:
+    src = User.get_by_username(request.user)
+    if (dstid := request.data["dst"]) is None:
         return Http404
-    dst = User.objects.filter(username=dst_name).first()
+    dst = User.objects.filter(id=dstid).first()
     if (friendship := Grove.get_grove(src, dst)) is None:
         return Http404
     friendship.xp += 50
@@ -23,10 +23,22 @@ def shake_friend(request):
     n.save()
     return HttpResponse(f"Created shake to {dst}")
 
+
+@api_view(["GET"])
+def get_grove(request):
+    src = User.get_by_username(request.user)
+    if (other_id := request.query_params["id"]) is None:
+        return HttpResponse("No id ")
+    other = User.objects.filter(id=other_id).first()
+    if (friendship := Grove.get_grove(src, other)) is None:
+        return Http404
+    return Response(GroveSerializer(friendship).data)
+
+
 @api_view(["GET"])
 def establish(request):
-    src = User.get_by_username(request.name)
-    if (dst_name := request.data["dst"]) is None:
+    src = User.get_by_username(request.user)
+    if (dst_name := request.query_params["dst"]) is None:
         return Http404
     if (dst := User.get_by_username(dst_name)) is None:
         return HttpResponseBadRequest
@@ -37,4 +49,4 @@ def establish(request):
         return HttpResponseBadRequest("Friends list full....")
     g = Grove(user_a=src, user_b=src, xp=0, start_data=timezone.now)
     g.save()
-    return Response(GroveSerializer(Grove).data)    
+    return Response(GroveSerializer(Grove).data)

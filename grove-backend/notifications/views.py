@@ -24,4 +24,3 @@ def delete_notifications(request):
     id = request.data["id"]
     notifs = Notification.objects.filter(user_to=user, id=id).all()
     notifs.delete()
-    

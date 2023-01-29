@@ -4,7 +4,7 @@ from users.models import User
 from django.contrib import admin
 from django.contrib.admin import register
 
- 
+
 class UserChallenge(models.Model):
     src = models.ForeignKey(User, on_delete=models.CASCADE, related_name="src")
     dst = models.ForeignKey(User, on_delete=models.CASCADE, related_name="dst")
@@ -33,5 +33,3 @@ class UserChallengeAdmin(admin.ModelAdmin):
 @register(DailyChallenge)
 class DailyChallengeAdmin(admin.ModelAdmin):
     pass
-
-

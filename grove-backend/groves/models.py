@@ -11,10 +11,8 @@ from rest_framework.response import Response
 
 
 class Grove(models.Model):
-    user_a = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user_a")
-    user_b = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user_b")
+    user_a = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_a")
+    user_b = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_b")
     xp = models.IntegerField(default=0, validators=[MinValueValidator(0)])
     start_date = models.DateField(default=timezone.now)
 
@@ -28,7 +26,9 @@ class Grove(models.Model):
         return friends
 
     def get_grove(user: User, other: User):
-        return Grove.objects.filter(Q(user_a=user, user_b=other) | Q(user_a=other, user_b=user)).first()
+        return Grove.objects.filter(
+            Q(user_a=user, user_b=other) | Q(user_a=other, user_b=user)
+        ).first()
 
     def __str__(self) -> str:
         return self.__repr__()
