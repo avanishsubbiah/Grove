@@ -76,7 +76,7 @@
 </script>
 
 <style lang="postcss">
-  .homecard {
-		margin: 5 rem;
+  .mycards {
+		margin: 1.5rem;
   }
 </style>
