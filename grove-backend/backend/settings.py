@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
     "groves.apps.GrovesConfig",
-    "quests.apps.QuestsConfig"
+    "quests.apps.QuestsConfig",
+    "rest_framework",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

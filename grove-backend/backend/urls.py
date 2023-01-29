@@ -20,5 +20,5 @@ urlpatterns = [
     path('groves/', include('groves.urls')),
     path('quests/', include('quests.urls')),
     path('users/', include('users.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls)
 ]
