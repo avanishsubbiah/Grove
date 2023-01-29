@@ -1,36 +1,53 @@
 <script>
     import {onMount} from 'svelte';
-    import {authenticated} from '../../stores/auth';
+    import {accessTok, refreshTok} from '../../stores/auth';
     let message = ''
-    onMount(async () => {
-        try {
-            const response = await fetch('http://localhost:8000/api/user', {
-                headers: {'Content-Type': 'application/json'},
-                credentials: 'include',
-            });
-            const content = await response.json();
-            message = `Hi ${content.name}`;
-            authenticated.set(true);
-        } catch (e) {
-            message = 'You are not logged in';
-            authenticated.set(false);
-        }
-    });
+    // onMount(async () => {
+    //     try {
+    //         const response = await fetch('http://localhost:8000/api/user', {
+    //             headers: {'Content-Type': 'application/json'},
+    //             credentials: 'include',
+    //         });
+    //         const content = await response.json();
+    //         message = `Hi ${content.name}`;
+    //         authenticated.set(true);
+    //     } catch (e) {
+    //         message = 'You are not logged in';
+    //         authenticated.set(false);
+    //     }
+    // });
 
     import {goto} from "$app/navigation";
     let username = '', password = ''
-    const submit = async () => {
-        await fetch('http://localhost:8000/api/token', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            credentials: 'include',
-            body: JSON.stringify({
-                username,
-                password
-            })
-        });
-        await console.log(response.json());
+    async function submit() {
+        try {
+            const response = await fetch('http://localhost:8000/api/token/', {
+                method: 'POST',
+                headers: {'Content-type': 'application/json'},
+                body: JSON.stringify({"username": username, "password": password})
+            });
+            const content = await response.json();
+            $accessTok = content.access;
+            $refreshTok = content.refresh;
+            message = `Hi ${JSON.stringify(content)}`;
+        } catch (e) {
+            message = 'You are not logged in';
+        }
     }
+
+    async function dispFren() {
+        try {
+            const response = await fetch('http://localhost:8000/users/friends/', {
+                method: 'GET',
+                headers: {'Content-type': 'application/json', 'Authorization': `Bearer ${$accessTok}`},
+            });
+            const content = await response.json();
+            message = `Your Frens: ${JSON.stringify(content)}`;
+        } catch (e) {
+            message = 'You are alone';
+        }
+    }
+    
 </script>
 
 <form on:submit|preventDefault={submit}>
@@ -42,5 +59,7 @@
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 </form>
+
+<button class="w-100 btn btn-lg btn-primary" on:click={dispFren}>No frens?</button>
 
 {message}
