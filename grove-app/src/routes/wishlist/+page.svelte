@@ -5,7 +5,7 @@
             {treeNameFromID(treeID)}'s Wishlist
         </h1>
     </span>
-    <div class="bg-white p-1 rounded shadow-xl container sm:max-w-lg sm:rounded-lg">
+    <div class="our-bg p-1 rounded shadow-xl container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto"> 
             <div class="grid grid-cols-3">
                 <div>
@@ -33,7 +33,7 @@
         </div>
     </div>
     <br>
-    <div id="treeSettingsCard" class="bg-white p-1 rounded container shadow-xl sm:max-w-lg sm:rounded-lg">
+    <div id="treeSettingsCard" class="our-bg p-1 rounded container shadow-xl sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto sm:px-10"> 
             <h1 class="flex justify-center text-3xl font-light font-serif">Settings</h1>
             <div class="form-check form-switch">
