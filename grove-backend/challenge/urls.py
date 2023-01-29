@@ -5,8 +5,8 @@ from . import views
 
 urlpatterns = [
     path("create/", views.create_challenge),
-    path("get-active/", views.get_active_challenges)
-    
+    path("get-active/", views.get_active_challenges),
+    path("complete/", views.complete_challenge)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

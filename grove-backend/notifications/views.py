@@ -18,7 +18,7 @@ def get_notifications(request):
     return Response(NotificationSerializer(notif, many=True).data)
 
 
-@api_view(["GET"])
+@api_view(["DELETE"])
 def delete_notifications(request):
     user = User.objects.filter(username=request.user).first()
     id = request.data["id"]

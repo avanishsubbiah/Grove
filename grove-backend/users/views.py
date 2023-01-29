@@ -21,8 +21,3 @@ def list_users(request):
 def list_users_groves(request):
     return Grove.get_friends(User.get_by_username(request.name))
 
-
-@api_view(["POST"])
-@permission_classes((IsAuthenticated,))
-def poke_friend(request):
-    pass
