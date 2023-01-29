@@ -159,19 +159,5 @@
             transition: stroke-dasharray .6s, stroke-dashoffset .6s;
         }
     }
-    &.bounce {
-        --stroke: var(--tick);
-        input {
-            &:checked {
-                --s: 11px;
-                & + svg {
-                    animation: bounce .4s linear forwards .2s;
-                }
-            }
-        }
-        svg {
-            --scale: 0;
-        }
-    }
 }
 </style>
