@@ -14,7 +14,7 @@
       <hr>
       {#each dispTrees() as tree}
       <div id="treeEntries" class="sm:rounded-lg sm:pt-3 sm:pb-3">
-        <p> {tree.name} <span style="float:right">{tree.status}</span></p>
+        <p> <a href="/tree?treeID={tree.treeID}">{tree.name}</a> <span style="float:right">{tree.status}</span></p>
         <hr>
       </div>
       {/each}
@@ -24,9 +24,9 @@
 
 <script>
   let trees = [
-    { name: "Ramune", status: "Happy b/c sushi"},
-    { name: "Fanta", status: "Missing my GF hours"},
-    { name: "Rosé", status: "It's a wine kind of night" },
+    { treeID: 1, name: "Ramune", status: "Happy b/c sushi"},
+    { treeID: 2, name: "Fanta", status: "Missing my GF hours"},
+    { treeID: 3, name: "Rosé", status: "It's a wine kind of night" },
   ]
 
   function dispTrees() {

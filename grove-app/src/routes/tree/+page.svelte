@@ -2,7 +2,7 @@
     <br>
     <span>
         <h1 class="flex justify-center text-2xl font-light font-serif">
-            Ramune's Tree
+            {treeNameFromID(treeID)}'s Tree
         </h1>
         <p class="flex justify-center">Planted: DATE</p>
     </span>
@@ -57,6 +57,15 @@
 </div>
 
 <script>
+    import { page } from '$app/stores';
+    const treeID = parseInt($page.url.searchParams.get('treeID'), 10);
+
+    let trees = [
+        { treeID: 1, name: "Ramune", status: "Happy b/c sushi"},
+        { treeID: 2, name: "Fanta", status: "Missing my GF hours"},
+        { treeID: 3, name: "Rosé", status: "It's a wine kind of night" },
+    ]
+
     let quests = [
         { dateTime: 1674939694, content: "Take a pic of your pet", status: "active" },
         { dateTime: 1674939695, content: "Whatcha Eating?", status: "active" },
@@ -70,6 +79,12 @@
             return el.status === "active";
         }
         );
+    }
+
+    function treeNameFromID(id) {
+        return trees.filter(obj => {
+            return obj.treeID === id
+        })[0].name
     }
     // console.log(dispNotis());
 </script>
