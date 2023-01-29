@@ -5,4 +5,4 @@ from .models import Grove
 class GroveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grove
-        fields = ["id","username", "first_name", "last_name"]
+        fields = ["id","user_a" ,"user_b", "xp", "start_date"]
