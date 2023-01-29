@@ -24,7 +24,7 @@
     <br>
     <p class="flex justify-center" style="display:none">You may shake again at TIME </p>
     
-    <div class="card container sm:max-w-lg sm:rounded-lg">
+    <div class="bg-white p-1 rounded container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto  sm:px-10"> 
             <h1 class="flex justify-center text-3xl font-light font-serif">Daily Quests</h1>
             {#each dispQuests() as quest}
@@ -50,7 +50,7 @@
         <br>
     </div>
     <br>
-    <div id="treeSettingsCard" class="card container sm:max-w-lg sm:rounded-lg">
+    <div id="treeSettingsCard" class="bg-white p-1 rounded container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto sm:px-10"> 
             <h1 class="flex justify-center text-3xl font-light font-serif">Settings</h1>
             <div class="form-check form-switch">

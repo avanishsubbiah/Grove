@@ -3,7 +3,7 @@
   </div>
   <div class="noti-list">
     {#each dispNotis() as noti}
-      <div id="noti-card" class="mycards col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 sm:pt-5 sm:pb-5">
+      <div id="noti-card" class="col-md-12 container shadow-xl bg-white p-auto rounded sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 sm:pt-5 sm:pb-5">
         <!-- {#if noti.type == doQuest}
           <p> {noti.content} 
             <span style="float:right">

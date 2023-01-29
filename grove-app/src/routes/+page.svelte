@@ -1,4 +1,4 @@
-<div class="home-page"> 
+<div class="home-page px-2"> 
   <!-- justify-center content-center -->
   <!-- <img class="flex container justify-center content-center" src="/lifeCycle.png"> -->
   <br>
@@ -8,12 +8,12 @@
     <p class="text-center font-serif text-medium text-xl" style="margin: 1.5rem"> Welcome to your Grove</p>
   <!-- </div> -->
   <br>
-  <div id="conversationCard" class="col-md-12 container shadow-xl card sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+  <div id="conversationCard" class="col-md-12 container bg-white p-1 rounded shadow-xl sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     <p class="text-center font-serif text-medium text-xl" style="margin: 1.5rem"> Talk to Ramune about his latest artwork!</p>
     <!-- <p> Talk to {friend} about {topic}!</p> -->
   </div>
   <br>
-  <div id="treeCard" class="mycards col-md-12 card container shadow-xl sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+  <div id="treeCard" class="mycards col-md-12 bg-white p-1 rounded container shadow-xl sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     <div style="margin: 1.5rem;">
       <span>
         <h4 class="text-left text-xl font-serif text-medium">Your Trees<span style="float:right">Statuses</span></h4>
