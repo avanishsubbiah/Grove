@@ -13,4 +13,9 @@
   .mycards {
 		margin: 1.5rem;
   }
+
+  :global(body){
+    background-color: bg-green-200;
+    background-image: url("/opacityBackground.png");
+  }
 </style>
