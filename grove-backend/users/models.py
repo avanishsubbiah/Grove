@@ -11,3 +11,9 @@ class User(models.Model):
     def get_groves(self) -> QuerySet:
         return self.grove_set.all()
 
+    def create_groves(self):
+        if(len(self.grove_set.all()) == 12):
+            denial = "Cannot add more friends to your grove"
+            return denial
+        else:
+            return self.grove_set.all()
