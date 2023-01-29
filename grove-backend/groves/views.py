@@ -23,6 +23,7 @@ def shake_friend(request):
     n.save()
     return HttpResponse(f"Created shake to {dst}")
 
+
 @api_view(["GET"])
 def establish(request):
     src = User.get_by_username(request.name)
@@ -37,4 +38,4 @@ def establish(request):
         return HttpResponseBadRequest("Friends list full....")
     g = Grove(user_a=src, user_b=src, xp=0, start_data=timezone.now)
     g.save()
-    return Response(GroveSerializer(Grove).data)    
+    return Response(GroveSerializer(Grove).data)

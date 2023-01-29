@@ -5,8 +5,7 @@ from django.contrib import admin
 
 
 class Notification(models.Model):
-    user_to = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user_to")
+    user_to = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_to")
     content = models.CharField(max_length=1024)
     src = models.CharField(max_length=256, default="System")
 

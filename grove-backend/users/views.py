@@ -20,4 +20,3 @@ def list_users(request):
 @api_view(["GET"])
 def list_users_groves(request):
     return Grove.get_friends(User.get_by_username(request.name))
-
