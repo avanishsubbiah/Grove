@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
     "groves.apps.GrovesConfig",
-    "quests.apps.QuestsConfig",
+    "notifications.apps.NotificationConfig",
     "rest_framework",
 ]
 
