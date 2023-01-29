@@ -14,6 +14,8 @@ class Quest(models.Model):
     user_from = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_from")
     exp = models.IntegerField(default=0)
+    
+    notification = None
 
     def request_quest(self, user_from: User):
         groves = user_from.get_groves()
@@ -35,8 +37,18 @@ class Quest(models.Model):
             status=False,
             user_to=tree, 
             user_from=self,
-            exp=50
+            exp=10
         )
+    def poke(self, user_from: User, user_to: User):
+        poke = user_from + " poked you!"
+        return Quest(
+            description=poke,
+            status=False,
+            user_to= user_to, 
+            user_from=self,
+            exp=0
+        )
+        
 
 
 @register(Quest)
