@@ -2,22 +2,31 @@
     <br>
     <span>
         <h1 class="flex justify-center text-2xl font-light font-serif">
-            Ramune's Tree
+            {treeNameFromID(treeID)}'s Tree
         </h1>
-        <p class="flex justify-center">Planted: DATE</p>
+        <p class="flex justify-center font-serif">Planted: DATE</p>
+        <p class="flex justify-center font-serif">{treeStatusFromID(treeID)}</p>
     </span>
     <span class="container"> 
-        <img style="max-width: 25rem" class="container-fluid" src="/stage0.png" alt="Tree">
+        <img style="max-width: 25rem" class="container-fluid" src="/stage3.png" alt="Tree">
     </span>
+    <br>
+    <p class="flex justify-center font-serif text-s">250/500 xp to lvl 4</p>
+    <div class="flex justify-center">
+        <div class="w-full bg-gray-200 h-2 mb-6" style="max-width: 25rem">
+            <div class="bg-green-500 h-2" style="width: 50%">
+            </div>
+        </div>
+    </div>
     <div class="flex justify-center">
         <button type="submit" aria-disabled="false" class="btn btn-lg btn-success active">Shake</button>
     </div>
     <br>
     <p class="flex justify-center" style="display:none">You may shake again at TIME </p>
     
-    <div class="card container sm:max-w-lg sm:rounded-lg">
+    <div class="bg-white p-1 rounded container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto  sm:px-10"> 
-            <h1 class="flex justify-center text-3xl font-light font-serif">Quests</h1>
+            <h1 class="flex justify-center text-3xl font-light font-serif">Daily Quests</h1>
             {#each dispQuests() as quest}
                 <div id="questEntry" class="relative align-middle content-center">
                     <ul class=""> 
@@ -41,7 +50,7 @@
         <br>
     </div>
     <br>
-    <div id="treeSettingsCard" class="card container sm:max-w-lg sm:rounded-lg">
+    <div id="treeSettingsCard" class="bg-white p-1 rounded container sm:max-w-lg sm:rounded-lg">
         <div class="mycards container-content sm:mx-auto sm:px-10"> 
             <h1 class="flex justify-center text-3xl font-light font-serif">Settings</h1>
             <div class="form-check form-switch">
@@ -54,11 +63,21 @@
             </div>
         </div>
     </div>
+    <br>
 </div>
 
 <script>
+    import { page } from '$app/stores';
+    const treeID = parseInt($page.url.searchParams.get('treeID'), 10);
+
+    let trees = [
+        { treeID: 1, name: "Ramune", status: "Happy b/c sushi"},
+        { treeID: 2, name: "Fanta", status: "Missing my GF hours"},
+        { treeID: 3, name: "Rosé", status: "It's a wine kind of night" },
+    ]
+
     let quests = [
-        { dateTime: 1674939694, content: "Take a pic of your pet", status: "active" },
+        { dateTime: 1674939694, content: "Take a pic of a pet", status: "active" },
         { dateTime: 1674939695, content: "Whatcha Eating?", status: "active" },
         { dateTime: 1674939696, content: "Something Funny", status: "active" },
         { dateTime: 1674939696, content: "Whatcha Doing?", status: "inactive" },
@@ -70,6 +89,18 @@
             return el.status === "active";
         }
         );
+    }
+
+    function treeNameFromID(id) {
+        return trees.filter(obj => {
+            return obj.treeID === id
+        })[0].name
+    }
+
+    function treeStatusFromID(id) {
+        return trees.filter(obj => {
+            return obj.treeID === id
+        })[0].status
     }
     // console.log(dispNotis());
 </script>
@@ -141,20 +172,6 @@
             stroke-dasharray: var(--a, 86.12);
             stroke-dashoffset: var(--o, 86.12);
             transition: stroke-dasharray .6s, stroke-dashoffset .6s;
-        }
-    }
-    &.bounce {
-        --stroke: var(--tick);
-        input {
-            &:checked {
-                --s: 11px;
-                & + svg {
-                    animation: bounce .4s linear forwards .2s;
-                }
-            }
-        }
-        svg {
-            --scale: 0;
         }
     }
 }
