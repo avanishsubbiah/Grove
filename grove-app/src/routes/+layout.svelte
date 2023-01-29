@@ -17,5 +17,13 @@
   :global(body){
     background-color: bg-green-200;
     background-image: url("/opacityBackground.png");
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  :global(rounded){
+    background-color:lightseagreen;
+  }
+  :global(our-bg){
+    background-color: blue;
   }
 </style>
